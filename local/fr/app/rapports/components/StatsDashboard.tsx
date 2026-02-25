@@ -481,7 +481,7 @@ export default function StatsDashboard() {
             isOpen={isFilterModalOpen}
             onClose={() => setIsFilterModalOpen(false)}
             onApply={handleFilterApply}
-            userRole={userRole}
+
           />
         </div>
 
