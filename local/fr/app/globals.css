@@ -1,0 +1,71 @@
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+ font-family: "Roboto", sans-serif;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+@keyframes enhancedFade {
+          0% { 
+            opacity: 0; 
+            transform: scale(0.95) translateY(10px);
+            filter: blur(10px);
+          }
+          15% { 
+            opacity: 1; 
+            transform: scale(1) translateY(0);
+            filter: blur(0px);
+          }
+          85% { 
+            opacity: 1; 
+            transform: scale(1) translateY(0);
+            filter: blur(0px);
+          }
+          100% { 
+            opacity: 0; 
+            transform: scale(1.02) translateY(-5px);
+            filter: blur(5px);
+          }
+        }
+        .animate-enhancedFade {
+          animation: enhancedFade 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
