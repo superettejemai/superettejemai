@@ -74,7 +74,7 @@ const customSelectStyles = {
   }),
 };
 
-export default function FilterModal({ isOpen, onClose, onApply, userRole }: FilterModalProps) {
+export default function FilterModal({ isOpen, onClose, onApply}: FilterModalProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [cashiers, setCashiers] = useState<User[]>([]);
