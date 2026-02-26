@@ -166,7 +166,7 @@ useEffect(() => {
     if (
       userRole === "worker" &&
       (
-        pathname.includes("/gestion/edit") ||
+        pathname.includes("/gestion") ||
         pathname.includes("/parametres")
       )
     ) {

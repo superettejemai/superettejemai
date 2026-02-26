@@ -43,7 +43,7 @@ export default function ProductsSoldModal({ isOpen, onClose, products, period }:
 
       {/* Modal */}
       <div className="flex min-h-full items-center justify-center p-4">
-        <div className="relative bg-white rounded-lg shadow-xl w-full max-w-5xl">
+        <div className="relative bg-white shadow-xl w-full max-w-7xl">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b">
             <div className="flex items-center gap-2">
@@ -62,17 +62,17 @@ export default function ProductsSoldModal({ isOpen, onClose, products, period }:
 
           {/* Period Info */}
           <div className="px-4 py-3 bg-gray-50 border-b">
-            <p className="text-sm text-gray-600">
+            <p className="text-base text-gray-600">
               Période: {new Date(period.startDate).toLocaleDateString()} - {new Date(period.endDate).toLocaleDateString()}
             </p>
             <div className="flex gap-4 mt-1">
-              <p className="text-sm text-gray-600">
+              <p className="text-base text-gray-600">
                 Total produits vendus: <span className="font-semibold">{totalQuantity}</span>
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-base text-gray-600">
                 Chiffre d'affaires: <span className="font-semibold">{totalRevenue.toFixed(2)} TND </span>
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-base text-gray-600">
                 Bénéfice: <span className={`font-semibold ${totalProfit >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   {totalProfit.toFixed(2)} TND 
                 </span>

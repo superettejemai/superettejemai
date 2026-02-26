@@ -469,7 +469,7 @@ export default function StatsDashboard() {
               <button
                 onClick={handleViewProductsSold}
                 disabled={loadingProducts}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 disabled:bg-blue-400 transition-colors shadow-sm"
+                className="flex items-center gap-2 px-4 py-4 bg-gray-600 text-white hover:bg-gray-700 disabled:bg-gray-400 transition-colors shadow-sm"
               >
                 {loadingProducts ? (
                   <>
