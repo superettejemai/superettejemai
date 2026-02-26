@@ -20,7 +20,7 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
       setAutoUpdateStatus('updating');
       console.log('🕐 Triggering auto-update via backend...');
       
-      const response = await fetch('http://localhost:4000/api/database/auto-update', {
+      const response = await fetch('https://superettejemai.onrender.com/api/database/auto-update', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
