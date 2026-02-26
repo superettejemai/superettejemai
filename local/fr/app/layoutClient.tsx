@@ -77,7 +77,7 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
   // Check if auto-update is available
   const checkAutoUpdateAvailability = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/database/check-auto-update');
+      const response = await fetch('https://superettejemai.onrender.com/api/database/check-auto-update');
       if (response.ok) {
         const result = await response.json();
         console.log('Auto-update check:', result);
