@@ -133,7 +133,7 @@ export default function FilterModal({ isOpen, onClose, onApply }: FilterModalPro
       if (!token) return;
 
       // Fetch products from /api/products
-      const productsRes = await fetch('/api/products', {
+      const productsRes = await fetch('https://superettejemai.onrender.com/api/products', {
         headers: { Authorization: `Bearer ${token}` }
       });
       const productsData = await productsRes.json();
