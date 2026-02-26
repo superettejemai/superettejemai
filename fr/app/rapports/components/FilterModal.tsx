@@ -133,14 +133,14 @@ export default function FilterModal({ isOpen, onClose, onApply }: FilterModalPro
       if (!token) return;
 
       // Fetch products from /api/products
-      const productsRes = await fetch('http://localhost:4000/api/products', {
+      const productsRes = await fetch('/api/products', {
         headers: { Authorization: `Bearer ${token}` }
       });
       const productsData = await productsRes.json();
       const products = productsData.products || productsData.data?.products || [];
 
       // Fetch categories from /api/stats/categories
-      const categoriesRes = await fetch('http://localhost:4000/api/stats/categories', {
+      const categoriesRes = await fetch('https://superettejemai.onrender.com/api/stats/categories', {
         headers: { Authorization: `Bearer ${token}` }
       });
       const categoriesData = await categoriesRes.json();
@@ -158,7 +158,7 @@ export default function FilterModal({ isOpen, onClose, onApply }: FilterModalPro
       const token = localStorage.getItem('authToken');
       if (!token) return;
 
-      const response = await fetch('http://localhost:4000/api/users', {
+      const response = await fetch('https://superettejemai.onrender.com/api/users', {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
