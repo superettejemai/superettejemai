@@ -519,12 +519,12 @@ export default function StatsDashboard() {
 
         {/* Filter Modal - Blurred for workers */}
         <div className={isWorker ? 'filter blur-sm pointer-events-none' : ''}>
-          <FilterModal
-            isOpen={isFilterModalOpen}
-            onClose={() => setIsFilterModalOpen(false)}
-            onApply={handleFilterApply}
-            users={users} // ✅ FIXED: Changed from userrole to users
-          />
+<FilterModal
+  isOpen={isFilterModalOpen}
+  onClose={() => setIsFilterModalOpen(false)}
+  onApply={handleFilterApply}
+  userRole={userRole}
+/>
         </div>
 
         {/* Products Sold Modal */}
