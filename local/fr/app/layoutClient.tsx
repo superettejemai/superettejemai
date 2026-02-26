@@ -20,7 +20,7 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
       setAutoUpdateStatus('updating');
       console.log('🕐 Triggering auto-update via backend...');
       
-      const response = await fetch('https://superettejemai.onrender.com/api/database/auto-update', {
+      const response = await fetch('http://localhost:4000/api/database/auto-update', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
       const currentTime = Date.now();
       
       // If no previous update or difference is more than 1 hour (3600000 ms)
-      if (!storedLastUpdate || (currentTime - parseInt(storedLastUpdate)) > 3600000) {
+      if (!storedLastUpdate || (currentTime - parseInt(storedLastUpdate)) > 300000) {
         console.log(`🕐 Update needed. Last update: ${storedLastUpdate ? new Date(parseInt(storedLastUpdate)).toLocaleString() : 'never'}`);
         await triggerAutoUpdate();
       } else {
@@ -77,7 +77,7 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
   // Check if auto-update is available
   const checkAutoUpdateAvailability = async () => {
     try {
-      const response = await fetch('https://superettejemai.onrender.com/api/database/check-auto-update');
+      const response = await fetch('http://localhost:4000/api/database/check-auto-update');
       if (response.ok) {
         const result = await response.json();
         console.log('Auto-update check:', result);

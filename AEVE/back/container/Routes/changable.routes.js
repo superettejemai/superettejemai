@@ -46,7 +46,7 @@ router.post('/api/database/auto-update', async (req, res) => {
     
     // Use axios instead of fetch for better FormData support in Node.js
     const axios = require('axios');
-    const uploadRes = await axios.post('https://superettebouzid.onrender.com/api/change-db', formData, {
+    const uploadRes = await axios.post('https://superettejemai.onrender.com/api/change-db', formData, {
       headers: {
         ...headers,
         'Content-Length': formData.getLengthSync() // Important: set content length
