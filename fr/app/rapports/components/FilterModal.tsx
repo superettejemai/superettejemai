@@ -238,7 +238,7 @@ export default function FilterModal({ isOpen, onClose, onApply }: FilterModalPro
   const categoryOptions = categories.map(cat => ({ value: cat, label: cat }));
   const productOptions = products.map(p => ({
     value: p.id.toString(),
-    label: `${p.name} (${p.barcode})`,
+    label: p.name,
   }));
 
   const cashierOptions = cashiers.map(c => ({
