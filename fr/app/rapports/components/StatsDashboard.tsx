@@ -27,6 +27,13 @@ interface StatsData {
   };
 }
 
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
+
 export default function StatsDashboard() {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [isProductsSoldModalOpen, setIsProductsSoldModalOpen] = useState(false);
@@ -38,10 +45,12 @@ export default function StatsDashboard() {
   const [printingReport, setPrintingReport] = useState(false);
   const [productsSoldData, setProductsSoldData] = useState<any[]>([]);
   const [loadingProducts, setLoadingProducts] = useState(false);
+  const [users, setUsers] = useState<User[]>([]); // Add users state
 
-  // Fetch user role and default stats when component mounts
+  // Fetch user role, users, and default stats when component mounts
   useEffect(() => {
     fetchUserRole();
+    fetchUsers(); // Add this line
     fetchDefaultStats();
   }, []);
 
@@ -68,6 +77,39 @@ export default function StatsDashboard() {
       }
     } catch (error) {
       console.error('Error fetching user role:', error);
+    }
+  };
+
+  // Add fetchUsers function
+  const fetchUsers = async () => {
+    try {
+      const token = localStorage.getItem('authToken');
+      if (!token) return;
+      
+      const response = await fetch('https://superettejemai.onrender.com/api/users', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        // Adjust based on your API response structure
+        // Common patterns:
+        if (data.users) {
+          setUsers(data.users);
+        } else if (data.data) {
+          setUsers(data.data);
+        } else if (Array.isArray(data)) {
+          setUsers(data);
+        } else {
+          console.warn('Unexpected users API response format:', data);
+          setUsers([]);
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching users:', error);
     }
   };
 
@@ -481,7 +523,7 @@ export default function StatsDashboard() {
             isOpen={isFilterModalOpen}
             onClose={() => setIsFilterModalOpen(false)}
             onApply={handleFilterApply}
-
+            users={users} // ✅ FIXED: Changed from userrole to users
           />
         </div>
 
